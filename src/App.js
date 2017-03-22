@@ -32,6 +32,14 @@ class App extends Component {
 
   }
 
+  mergeConflictMethod (FileToMerge) {
+    if (FileToMerge) {
+      this.complainTo('Linus' ); 
+    } else {
+      this.complainTo('Daniel' ); 
+    }
+  }
+
   toggleFavorite(address) {
     
     if (this.isAddressInFavorites(address)) {
