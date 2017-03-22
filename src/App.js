@@ -39,8 +39,16 @@ class App extends Component {
       this.complainTo('Daniel' ); 
     }
   }
-  
+
   Limpa() {
+    return {
+      limp: true,
+      age: 24,
+      name: 'Linus'
+    }
+  }
+
+  Limpa2() {
     return {
       limp: true,
       age: 24,
