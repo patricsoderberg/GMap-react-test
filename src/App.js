@@ -16,7 +16,7 @@ class App extends Component {
 
   constructor (props) {
     super(props);
-    
+
     let favorites = [];
     if(localStorage.favorites) {
         favorites = JSON.parse(localStorage.favorites)
@@ -39,9 +39,17 @@ class App extends Component {
       this.complainTo('Daniel' ); 
     }
   }
+  
+  Limpa() {
+    return {
+      limp: true,
+      age: 24,
+      name: 'Linus'
+    }
+  }
 
   toggleFavorite(address) {
-    
+
     if (this.isAddressInFavorites(address)) {
         this.removeFromFavorites(address);
     }
@@ -61,11 +69,11 @@ class App extends Component {
       favorites: favorites
     });
     localStorage.favorites = JSON.stringify(favorites);
-    
+
   }
 
   removeFromFavorites(address) {
-    
+
     // let favorites = this.state.favorites;
     let favorites = this.state.favorites.filter((favorite)=> {
       return favorite.address !== address;
@@ -86,12 +94,12 @@ class App extends Component {
   }
 
   searchForAddress(address) {
-    
+
     GMaps.geocode({
       address:address,
       callback: (results,status)=>{
-        if (status !=='OK') return 
-        
+        if (status !=='OK') return
+
         let latlng = results[0].geometry.location;
         this.setState({
           currentAddress: results[0].formatted_address,
@@ -115,8 +123,8 @@ class App extends Component {
           favorite={this.isAddressInFavorites(this.state.currentAddress)}
           onFavoriteToggle={(address) => this.toggleFavorite(address)} />
 
-        <LocationList locations={this.state.favorites} 
-          activeLocationAddress={this.state.currentAddress} 
+        <LocationList locations={this.state.favorites}
+          activeLocationAddress={this.state.currentAddress}
           onClick={(address) => this.searchForAddress(address)} />
       </div>
     );
