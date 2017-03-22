@@ -34,17 +34,24 @@ class App extends Component {
 
   mergeConflictMethod (FileToMerge) {
     if (FileToMerge) {
-      this.complainTo('Linus' ); 
+      this.complainTo('Linus' );
     } else {
-      this.complainTo('Daniel' ); 
+      this.complainTo('Daniel' );
     }
   }
-  
+
   Limpa() {
     return {
       limp: true,
       age: 24,
       name: 'Linus'
+    }
+  }
+
+  Daniel_Banan() {
+    return {
+      idiot: true,
+      stupid: true
     }
   }
 
